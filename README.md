@@ -1,5 +1,4 @@
-# web3_dashboard
-
+  # WEB3_CUSTOM_DASHBOARD
 This repo is contain some source code that i use to build personal web3 management task
 
 ## Description
