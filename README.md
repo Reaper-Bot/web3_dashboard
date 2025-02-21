@@ -46,13 +46,13 @@ Define tables for:
 ### Task Management API
 Create Task Endpoints (task_routes.py)
 ### Web3 Integration
-Setup Web3 Connection (web3_utils.py)
+Setup Web3 Connection (web3_utils.py) 
 ### Automate Task Status with Celery
 * Install celery
 ```
 pip install celery
 ```
 * Run celery
-* ```
+ ```
   celery -A tasks worker --loglevel=info
   ```
