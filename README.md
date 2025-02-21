@@ -32,8 +32,7 @@ Since you’re using Python (Flask) for Web3, here’s the recommended stack:
 * source venv/bin/activate  # (On Windows: venv\Scripts\activate)
 * pip install flask flask-jwt-extended flask-sqlalchemy web3 celery redis
 ```
-## Database Design
-
+### Database Design
 Define tables for:
 * Tasks (ID, Name, Status, Priority, Web3 Contract Address, etc.)
 * Projects (Different Web3 testnet projects)
@@ -41,3 +40,6 @@ Define tables for:
 
   ### Create Models
   Create models at models.py
+  
+### Implement Authentication (JWT)
+ Setup User Authentication (auth.py)
