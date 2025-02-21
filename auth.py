@@ -2,6 +2,8 @@ from flask import Blueprint, request, jsonify
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import User, db
+from auth_utils import role_required
+
 
 auth_bp = Blueprint('auth', __name__)
 
@@ -22,3 +24,10 @@ def login():
         token = create_access_token(identity=user.id)
         return jsonify({"access_token": token})
     return jsonify({"message": "Invalid credentials"}), 401
+
+@auth_bp.route('/admin/users', methods=['GET'])
+@jwt_required()
+@role_required('admin')
+def get_users():
+    users = User.query.all()
+    return jsonify([{"id": u.id, "username": u.username, "role": u.role} for u in users])
