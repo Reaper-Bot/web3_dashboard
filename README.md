@@ -56,3 +56,9 @@ pip install celery
  ```
   celery -A tasks worker --loglevel=info
   ```
+### Deployment & Security
+```
+pip install gunicorn
+gunicorn -w 4 app:app
+```
+### Setup Reverse Proxy (NGINX)
