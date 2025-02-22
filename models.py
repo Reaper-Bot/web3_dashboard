@@ -12,6 +12,9 @@ class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(200), nullable=False)
     description = db.Column(db.Text)
+    network = db.Column(db.String(50), nullable=False)  # goerli, sepolia, polygon-testnet
+    rpc_url = db.Column(db.String(255), nullable=False)  # RPC URL for interaction
+
 
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
