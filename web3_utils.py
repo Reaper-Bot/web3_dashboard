@@ -1,8 +1,15 @@
 from web3 import Web3
+from models import Project
 
-infura_url = "https://goerli.infura.io/v3/YOUR_INFURA_PROJECT_ID"
-w3 = Web3(Web3.HTTPProvider(infura_url))
+def get_web3_instance(project_id):
+    project = Project.query.get(project_id)
+    if not project:
+        return None
+    return Web3(Web3.HTTPProvider(project.rpc_url))
 
-def get_contract_balance(contract_address):
+def get_contract_balance(project_id, contract_address):
+    w3 = get_web3_instance(project_id)
+    if not w3:
+        return None
     balance = w3.eth.get_balance(contract_address)
     return w3.from_wei(balance, 'ether')
